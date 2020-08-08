@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;  
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 2rem 0 4rem 0;
+}
+
+.card {
+  border: 1px solid blue;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.card div {
+  border: 1px solid purple;
+  margin: 1rem;
+}
+
+.next-days {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 2fr;
+}
