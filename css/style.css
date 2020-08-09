@@ -13,7 +13,6 @@ html {
 body {
   height: 100vh;
   width: 100vw;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,26 +20,37 @@ body {
 }
 
 h1 {
-  margin: 2rem 0 4rem 0;
+  margin: 2rem 0 2rem 0;
 }
 
 .card {
+  width: 50vw;
   border: 1px solid blue;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 2fr 1fr;
-  justify-content: center;
+  justify-items: center;
   align-items: center;
-  margin: 2rem 0 4rem 0;
+  margin: 2rem 0 2rem 0;
 }
 
 .card div {
   border: 1px solid purple;
   margin: 1rem;
+  justify-self: center;
+  align-self: center;
 }
 
 .next-days {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 2fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#current-weather {
+  transform: scale(5);
+}
+
+#current-temp {
+  margin-top: 3rem;
 }
