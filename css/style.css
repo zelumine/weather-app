@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin-left: 2rem;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ body {
   background-image: url(https://images.pexels.com/photos/1235398/pexels-photo-1235398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   /* Background image found on pexels.com, © Oleg Magni */
 }
 
