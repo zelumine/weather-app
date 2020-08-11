@@ -59,7 +59,7 @@ option {
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 1.5fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1.5fr 1fr;
   justify-items: center;
   align-items: space-around;
 }
@@ -84,6 +84,10 @@ option {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+#date {
+  margin: -2rem 0;
 }
 
 #today {

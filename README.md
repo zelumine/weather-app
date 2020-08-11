@@ -1,6 +1,10 @@
-This weather app was made for a technical test.
+#Présentation#
+Cette application météo a été créée dans le cadre d'un test technique.
 
-I had to use OpenWeatherApp's API to get the forecast information, with a local .json file including the French cities.
+Il fallait utiliser les informations envoyées par l'API d'OpenWeatherApp, et un fichier .json comprenant les informations des villes françaises.
 
-I had to show today's weather and the forecast for the next three days.
-For the next three days' min and max temperatures I took the lowest and highest. For the weather icon I chose to show the weather at 12pm.
+Je devais afficher la météo du jour et des trois jours suivants.
+Pour les températures minimum et maximum des trois prochains jours, j'ai pris la plus basse et la plus haute de chaque jour. Pour l'icône de météo j'ai choisi de montrer celui qui correspond à la météo à midi..
+
+#Problèmes à résoudre#
+Je suis consciente que si la date du jour est le 31 août, par exemple, ça n'affichera pas la météo des trois prochains jours. J'ai essayé d'écrire une fonction qui vérifie la date et change le mois et le jour si on est à la fin du mois, mais sans succès. J'ai cherché des solutions sur internet mais pour l'instant je n'en ai pas trouvé qui fonctionne avec mon code.

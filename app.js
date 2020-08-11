@@ -18,6 +18,7 @@ let todaysWeekDay = todaysDate.getDay();
 
 const selectList = document.querySelector('#select-cities');
 const cityName = document.querySelector('#city-title');
+const date = document.querySelector('#date');
 const loader = document.querySelector('.loader');
 const weatherCard = document.querySelector('.card');
 const currentWeather = document.querySelector('#current-weather');
@@ -121,6 +122,7 @@ function getCurrentWeather(cityID) {
 
       response.json().then(function (weatherData) {
         cityName.innerHTML = weatherData.name;
+        date.innerHTML = `${todaysDay}/${todaysMonth}/${todaysYear}`;
         previousIconID = weatherData.weather[0].id;
         currentWeather.classList.add(`wi-icon-${previousIconID}`);
         currentTemp.innerHTML = `${weatherData.main.temp.toFixed(1)} °C`;
@@ -155,8 +157,8 @@ function getForecast(cityID) {
           }
         }
         previousForecastIcon = extractIcons[4];  //Weather at 12pm
-        minTemps[i].innerHTML = `${extractMinTemps.sort((a, b) => a - b)[0].toFixed(1)} °C`;
-        maxTemps[i].innerHTML = `${extractMaxTemps.sort((a, b) => b - a)[0].toFixed(1)} °C`;
+        minTemps[i].innerHTML = `Min. : ${extractMinTemps.sort((a, b) => a - b)[0].toFixed(1)} °C`;
+        maxTemps[i].innerHTML = `Max. : ${extractMaxTemps.sort((a, b) => b - a)[0].toFixed(1)} °C`;
         extractMinTemps = [];
         extractMaxTemps = [];
         extractIcons = [];
