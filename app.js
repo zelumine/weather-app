@@ -83,10 +83,6 @@ function getCity() {
   })
 }
 
-function convertTemp(temp) {
-  return (temp - 273.15).toFixed(1);    //Convert from Kelvin to Celsius
-}
-
 function getDayOfWeek(n) {
   switch(n) {
     case 0:
@@ -114,7 +110,7 @@ function getDayOfWeek(n) {
 }
 
 function getCurrentWeather(cityID) {
-  weatherUrl = `http://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=${key}`
+  weatherUrl = `http://api.openweathermap.org/data/2.5/weather?id=${cityID}&units=metric&appid=${key}`
 
   fetch(weatherUrl)
     .then(function (response) {
@@ -127,7 +123,7 @@ function getCurrentWeather(cityID) {
         cityName.innerHTML = weatherData.name;
         previousIconID = weatherData.weather[0].id;
         currentWeather.classList.add(`wi-icon-${previousIconID}`);
-        currentTemp.innerHTML = `${convertTemp(weatherData.main.temp)} °C`;
+        currentTemp.innerHTML = `${weatherData.main.temp.toFixed(1)} °C`;
         currentWeather.title = weatherData.weather[0].main;
         currentWeather.alt = `Météo à ${weatherData.name} : ${weatherData.weather[0].main}`;
       });
@@ -135,7 +131,7 @@ function getCurrentWeather(cityID) {
 }
 
 function getForecast(cityID) {
-  weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?id=${cityID}&appid=${key}`
+  weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?id=${cityID}&units=metric&appid=${key}`
   fetch(weatherUrl)
   .then(function (response) {
     if (response.status !== 200) {
@@ -159,20 +155,18 @@ function getForecast(cityID) {
           }
         }
         previousForecastIcon = extractIcons[4];  //Weather at 12pm
-        minTemps[i].innerHTML = `${convertTemp(extractMinTemps.sort((a, b) => a - b)[0])} °C`;
-        maxTemps[i].innerHTML = `${convertTemp(extractMaxTemps.sort((a, b) => b - a)[0])} °C`;
+        minTemps[i].innerHTML = `${extractMinTemps.sort((a, b) => a - b)[0].toFixed(1)} °C`;
+        maxTemps[i].innerHTML = `${extractMaxTemps.sort((a, b) => b - a)[0].toFixed(1)} °C`;
         extractMinTemps = [];
         extractMaxTemps = [];
         extractIcons = [];
         loader.style.display = 'none';
         forecastWeekDays[i].innerHTML = getDayOfWeek(todaysDate.getDay() + (i + 1));
         forecastIcons[i].classList.add(`wi-icon-${previousForecastIcon}`);
-      }
-      
+      }      
     });
   });
 }
-
 
 selectList.addEventListener('change', (e) => {
   selectedCity = e.target.value;
