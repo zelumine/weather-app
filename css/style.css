@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+
 html {
   box-sizing: border-box;  
   width: 100%;
   height: 100%;
-  font-size: 16px;
+  font-size: 36px;
+  font-family: 'Oxygen', sans-serif;
 }
 
 *, *:before, *:after {
@@ -13,45 +16,163 @@ html {
 body {
   height: 100vh;
   width: 100vw;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://images.pexels.com/photos/1235398/pexels-photo-1235398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Background image found on pexels.com, © Oleg Magni */
+}
+
+h1 {
+  margin: 2rem 0;
+}
+
+label, select {
+  height: 1.8rem;
+}
+
+label {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 1.3rem;
+  border-radius: 5px;
+}
+
+option {
+  font-size: 0.5rem;;
+}
+
+.card {
+  width: 100vw;
+  max-height: 80vh;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 1.5fr 1fr;
+  justify-items: center;
+  align-items: space-around;
+}
+
+@media(min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    margin-left: 0;
+    background-color: #d4418e;
+    background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+    /* Gradient background found at https://www.eggradients.com/category/sunset-gradient?83ff460c_page=1 */
+  }
+
+  label {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  select {
+    font-size: 1rem;
+  }
+
+  option {
+    font-size: 1rem;
+  }
+
+  .card {
+    width: 50vw;
+    max-height: 70vh;
+    border-radius: 25px;
+  background: rgba(255, 255, 255, 0.2);
+
+  }
+}
+
+.loader {
+  margin: auto;
+  z-index: 99;
+  background: white;
+  text-align: center;
+}
+
+.loader img {
+  height: 5.5rem;
+  width: 5.5rem;
+  animation: rotate 1.5s infinite linear; 
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0); 
+  }
+  100% {
+    transform: rotate(360deg); 
+  } 
+}
+
+.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  100% {
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+#today {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-h1 {
-  margin: 2rem 0 2rem 0;
+#current-weather {
+  transform: scale(6);
+  padding: 1rem 2rem 1.3rem 2rem;
 }
 
-.card {
-  width: 50vw;
-  max-height: 70vh;
-  border: 1px solid blue;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
-  justify-items: center;
-  align-items: center;
-  margin: 2rem 0 2rem 0;
+#current-temp {
+  font-size: 1.8rem;
+  padding-top: 2rem;
 }
 
-.card div {
-  border: 1px solid purple;
-  margin: 1rem;
-  justify-self: center;
-  align-self: center;
-}
-
-.next-days {
+#next-days {
+  width: 100%;
+  height: 100%;
+  font-size: 1.15rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-#current-weather {
-  transform: scale(5);
+#next-days div {
+  width: 8rem;
+  justify-self: center;
+  line-height: 2rem;
+  text-align: center;
 }
 
-#current-temp {
-  margin-top: 3rem;
+.forecast-icon {
+  transform: scale(2);
+  margin: auto;
+  padding: 0.8rem 0;
+}
+
+#day3 {
+  margin-right: 2rem;
 }
