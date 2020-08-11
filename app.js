@@ -16,8 +16,10 @@ let todaysMonth = todaysDate.getMonth() +1;
 let todaysDay = todaysDate.getDate();
 let todaysWeekDay = todaysDate.getDay();
 
-const selectList = document.getElementById('select-cities');
+const selectList = document.querySelector('#select-cities');
 const cityName = document.querySelector('#city-title');
+const loader = document.querySelector('.loader');
+const weatherCard = document.querySelector('.card');
 const currentWeather = document.querySelector('#current-weather');
 const currentTemp = document.querySelector('#current-temp');
 const forecastWeekDays = Array.from(document.querySelectorAll('.week-days'));
@@ -134,10 +136,10 @@ function getCurrentWeather(cityID) {
 
 function getForecast(cityID) {
   weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?id=${cityID}&appid=${key}`
-  
   fetch(weatherUrl)
   .then(function (response) {
-    if (response.status !== 200) {  
+    if (response.status !== 200) {
+      loader.style.display = 'none';  
       console.warn(`There was a problem. Status code: ${response.status}`);  
       return;  
     }
@@ -162,6 +164,7 @@ function getForecast(cityID) {
         extractMinTemps = [];
         extractMaxTemps = [];
         extractIcons = [];
+        loader.style.display = 'none';
         forecastWeekDays[i].innerHTML = getDayOfWeek(todaysDate.getDay() + (i + 1));
         forecastIcons[i].classList.add(`wi-icon-${previousForecastIcon}`);
       }
@@ -174,5 +177,5 @@ function getForecast(cityID) {
 selectList.addEventListener('change', (e) => {
   selectedCity = e.target.value;
   getCity();
+  loader.style.display = 'block';
 });
-

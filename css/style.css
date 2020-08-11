@@ -64,72 +64,26 @@ option {
   align-items: space-around;
 }
 
-@media(min-width: 992px) {
-  html {
-    font-size: 16px;
-  }
-
-  body {
-    margin-left: 0;
-    background-color: #d4418e;
-    background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
-    /* Gradient background found at https://www.eggradients.com/category/sunset-gradient?83ff460c_page=1 */
-  }
-
-  label {
-    font-size: 1rem;
-    margin-bottom: 0;
-  }
-
-  select {
-    font-size: 1rem;
-  }
-
-  option {
-    font-size: 1rem;
-  }
-
-  .card {
-    width: 50vw;
-    max-height: 70vh;
-    border-radius: 25px;
-  background: rgba(255, 255, 255, 0.2);
-
-  }
-}
-
+/* Loader found on https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
-  margin: auto;
-  z-index: 99;
-  background: white;
-  text-align: center;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
-.loader img {
-  height: 5.5rem;
-  width: 5.5rem;
-  animation: rotate 1.5s infinite linear; 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0); 
-  }
-  100% {
-    transform: rotate(360deg); 
-  } 
-}
-
-.hidden {
-  animation: fadeOut 1s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-  100% {
-      opacity: 0;
-      visibility: hidden;
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 #today {
@@ -175,4 +129,38 @@ option {
 
 #day3 {
   margin-right: 2rem;
+}
+
+@media(min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    margin-left: 0;
+    background-color: #d4418e;
+    background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+    /* Gradient background found at https://www.eggradients.com/category/sunset-gradient?83ff460c_page=1 */
+  }
+
+  label {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  select {
+    font-size: 1rem;
+  }
+
+  option {
+    font-size: 1rem;
+  }
+
+  .card {
+    width: 50vw;
+    max-height: 70vh;
+    border-radius: 25px;
+  background: rgba(255, 255, 255, 0.2);
+
+  }
 }
