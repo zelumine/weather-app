@@ -4,7 +4,7 @@
 
 Cette application météo a été créée dans le cadre d'un test technique.
 
-Il fallait utiliser les informations envoyées par l'API d'OpenWeatherApp, et un fichier .json comprenant les informations des villes françaises.
+Il fallait utiliser les informations envoyées par l'API d'OpenWeatherMap, et un fichier .json comprenant les informations des villes françaises.
 
 Je devais afficher la météo du jour et des trois jours suivants.
 Pour les températures minimum et maximum des trois prochains jours, j'ai pris la plus basse et la plus haute de chaque jour. Pour l'icône de météo j'ai choisi de montrer celui qui correspond à la météo à midi..
